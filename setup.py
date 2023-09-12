@@ -70,14 +70,14 @@ def setup(args:argparse.Namespace) -> None:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--lang", help="Select language to be set up. If None, all will be created.",
+    parser.add_argument("--lang", help="Select language to be set up. If None, all will be referenced.",
                         type=str, choices=['french', 'german', 'occitan'], default=None)
     parser.add_argument('--force', help="Ignores existing material, creating the data from scratch.", action='store_true')
     parser.add_argument("--mode", help="'verbs' will collect verbal material for the language specified.\
                                         'addword' will add this word into the vocabulary corpus for the language specified.\
                                         'adduser' will create a scores json for the user specified.",
                         type=str, choices=['verbs', 'addword', 'adduser'], default=None)
-    parser.add_argument("--username", help="Creates scores for a username indicated in the passed argument.",
+    parser.add_argument("--username", help="Creates a score record for a username indicated in this argument.",
                         type=str, default=None)
     parser.add_argument("--newword", help="Adds the passed word to the vocabulary corpus.", 
                         type=str, default=None)
