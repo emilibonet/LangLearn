@@ -32,9 +32,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Check arguments.
+    if args.lang is None:
+        raise ValueError(f"ERROR -- You must specify a language with the '--lang <LANG>' flag.")
     if args.lang not in os.listdir(f'{root_dir}/Material'):
         separator = "', '"
-        raise ValueError(f"ERROR -- Language '{args.lang}' not found. Available languages are '{separator.join(os.listdir('/home/emili/Documents/Projects/Altres/Llengues/Material'))}'.")
+        raise ValueError(f"ERROR -- Language '{args.lang}' not found. Available languages are '{separator.join(os.listdir(f'{root_dir}/Material'))}'.")
     if args.save and args.user is not None:
         raise ValueError("ERROR -- Need to provide a user if you want to save.")
     if args.word is not None and args.common:
